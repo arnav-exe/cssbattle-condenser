@@ -1,6 +1,5 @@
 import pyperclip as pc
 import time # USE time.perf_counter() TO MEASURE PROGRAM PERFORMANCE (WILL DEPLOY AS AWS LAMBDA FUNC  SO SHOULD REMAIN IN FREE TIER PERFORMANCE ALLOCATION)
-from bs4 import BeautifulSoup as bs
 
 def readClipboard():
     return pc.paste();
@@ -9,7 +8,7 @@ def writeClipboard(text):
     pc.copy(text);
 
 def optimizer(text):
-    punc = ".,:;%#/"
+    punc = ".,:;%#/]*"
     text = text.split("\n");
 
     text = map(str.strip, text)  # removes whitespace from each element (if element is purely whitespace, it becomes an empty string)
@@ -17,17 +16,8 @@ def optimizer(text):
 
     i = 0;
     while (i < len(text)):
-        """TODO:
-        1. remove all elements that are comments [DONE]
-        2. remove last set of lines:
-            a. final closing curly bracket "}" [DONE]
-            b. closing style tag "</style>" [DONE]
-        3. remove last semicolon inside each class [DONE]
-        4. remove all whitespaces in between valid punctuation
-        5. remove units for width and height (EG: width: 100px -> width: 100) [DONE]
-        6. remove all newlines"""
-
-        if ("<!--" in text[i]): # removing comments
+        # removing all comments
+        if ("<!--" in text[i]):
             text.pop(i);
             i -= 1; # since idx will be offset by +1
         
@@ -35,24 +25,32 @@ def optimizer(text):
         if (text[i] == "}"):
             text[i-1] = text[i-1][:-1]; # remove last character
         
-        if (text[i] == "</style>"): # slice list from before this element
-            text = text[:i-1];
+        # removing all whitespaces in between valid punctuation
+        j = 0;
+        while (j < len(text[i]) - 1):
+            if (text[i][j] in punc and text[i][j+1] == " "):
+                tempArr = list(text[i]);
+                tempArr[j+1] = "";
+                text[i] = "".join(tempArr);
+            j += 1;
         
-        if ("width" in text[i] or "height" in text[i]): # remove px units for width and height
+        # removing px units for width and height
+        if ("width" in text[i] or "height" in text[i]):
             text[i] = text[i].replace("px", "");
-
+        
+        # slice list from before this element
+        if (text[i] == "</style>"):
+           text = text[:i-1];
 
         i += 1;
 
     return text;
 
-def main():
+if __name__ == "__main__":
     text = readClipboard();
     while(text == ""):
         text = readClipboard();
     
-    print(optimizer(text));
-
-
-if __name__ == "__main__":
-    main();
+    results = "".join(optimizer(text)).replace("\n", "");
+    writeClipboard(results);
+    print(results);
