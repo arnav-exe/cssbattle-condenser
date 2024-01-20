@@ -24,7 +24,7 @@ def optimizer(text):
             b. closing style tag "</style>" [DONE]
         3. remove last semicolon inside each class [DONE]
         4. remove all whitespaces in between valid punctuation
-        5. remove units for width and height (EG: width: 100px -> width: 100)
+        5. remove units for width and height (EG: width: 100px -> width: 100) [DONE]
         6. remove all newlines"""
 
         if ("<!--" in text[i]): # removing comments
@@ -37,6 +37,9 @@ def optimizer(text):
         
         if (text[i] == "</style>"): # slice list from before this element
             text = text[:i-1];
+        
+        if ("width" in text[i] or "height" in text[i]): # remove px units for width and height
+            text[i] = text[i].replace("px", "");
 
 
         i += 1;
