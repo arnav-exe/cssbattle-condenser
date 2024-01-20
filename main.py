@@ -1,5 +1,5 @@
 import pyperclip as pc
-import time # USE time.perf_counter() TO MEASURE PROGRAM PERFORMANCE (WILL DEPLOY AS AWS LAMBDA FUNC  SO SHOULD REMAIN IN FREE TIER PERFORMANCE ALLOCATION)
+import time
 
 def readClipboard():
     return pc.paste();
@@ -8,7 +8,7 @@ def writeClipboard(text):
     pc.copy(text);
 
 def optimizer(text):
-    punc = ".,:;%#/]*"
+    punc = ".,:;%#/]*" # str of all valid punctuation
     text = text.split("\n");
 
     text = map(str.strip, text)  # removes whitespace from each element (if element is purely whitespace, it becomes an empty string)
