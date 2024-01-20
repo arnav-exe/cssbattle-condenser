@@ -1,4 +1,5 @@
 import pyperclip as pc
+import time # USE time.perf_counter() TO MEASURE PROGRAM PERFORMANCE (WILL DEPLOY AS AWS LAMBDA FUNC  SO SHOULD REMAIN IN FREE TIER PERFORMANCE ALLOCATION)
 from bs4 import BeautifulSoup as bs
 
 def readClipboard():
