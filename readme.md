@@ -11,3 +11,8 @@ This Python script performs a few functions to intelligetntly optimise your code
  * removes all whitespaces in between valid punctuation
  * removes units for width and height (EG: width: 100px -> width: 100)
  * removes all newlines
+
+
+
+Next steps:
+deploy as a Lambda function
