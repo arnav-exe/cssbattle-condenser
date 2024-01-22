@@ -8,7 +8,7 @@ def writeClipboard(text):
     pc.copy(text);
 
 def optimizer(text):
-    punc = ".,:;%#/]*" # str of all valid punctuation
+    punc = ".,:;%#/])*" # str of all valid punctuation
     text = text.split("\n");
 
     text = map(str.strip, text)  # removes whitespace from each element (if element is purely whitespace, it becomes an empty string)
