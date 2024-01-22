@@ -34,6 +34,15 @@ def optimizer(text):
                 text[i] = "".join(tempArr);
             j += 1;
         
+        # removing whitespace in between tag name and "{" (l solution)
+        k = 0;
+        while (k < len(text[i])):
+            if(text[i][k] == "{" and text[i][k-1] == " "):
+                tempArr = list(text[i]);
+                tempArr[k-1] = "";
+                text[i] = "".join(tempArr);
+            k += 1;
+
         # removing px units for width and height
         if ("width" in text[i] or "height" in text[i]):
             text[i] = text[i].replace("px", "");
