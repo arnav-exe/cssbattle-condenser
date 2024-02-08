@@ -1,6 +1,6 @@
-# Code optimizer for CSSBattle.dev
+# Code minifier for CSSBattle.dev
 
-This Python script performs a few functions to intelligetntly optimise your code for the online code golfing game [CSSBattle.dev](https://cssbattle.dev/)
+This Python script performs a few functions to intelligently minify your code for the online code golfing game [CSSBattle.dev](https://cssbattle.dev/)
 
 ### Optimisations:
 * removes all elements that are comments
