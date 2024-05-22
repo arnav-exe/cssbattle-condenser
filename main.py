@@ -22,7 +22,7 @@ def optimizer(text):
             i -= 1; # since idx will be offset by +1
         
         # removing last semicolon in each class:
-        if (text[i] == "}"):
+        if (text[i] == "}" and text[i-1] == ";"):
             text[i-1] = text[i-1][:-1]; # remove last character
         
         # removing all whitespaces in between valid punctuation
