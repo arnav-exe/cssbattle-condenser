@@ -22,17 +22,30 @@
             })
             .catch(err => console.log(err))
         }
+
+        const copyToClipboard = _ => {
+            const formattedText = document.getElementById("formattedText").innerText;
+            navigator.clipboard.writeText(formattedText)
+            .then(_ => {
+                alert("Copied to clipboard");
+            })
+            .catch(err => console.log(err))
+        };
     </script>
 </head>
-<body>
-    <h1>CSSBattle Minifier</h1>
+<body style="font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 0;">
+    <div style="display: flex; justify-content: center; flex-direction: column; padding: 0 100px;">
+        <h1 style="text-align: center;">CSSBattle Minifier</h1>
 
-    <textarea id="inputText" rows="10" cols="50" placeholder="Enter your CSSBattle code here"></textarea>
-    <br>
+        <textarea id="inputText" rows="10" cols="50" placeholder="Enter your CSSBattle code here"></textarea>
+        <br>
 
-    <button onclick="submitText()">Minify</button>
+        <button onclick="submitText()">Minify</button>
 
-    <h2>Minified CSSBattle code:</h2>
-    <p id="formattedText"></p>
+        <h2 style="text-align: center;">Minified CSSBattle code:</h2>
+        <p id="formattedText"></p>
+
+        <button id="copyToClipboard" onclick="copyToClipboard()">Copy to clipboard</button>
+</div>
 </body>
 </html>
