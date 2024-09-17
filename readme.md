@@ -1,5 +1,8 @@
 # Code minifier for CSSBattle.dev
 
+##### WEBSITE IS NOW [LIVE](https://cssbattle-minifier.onrender.com/)
+
+
 This Python script performs a few functions to intelligently minify your code for the online code golfing game [CSSBattle.dev](https://cssbattle.dev/)
 
 ### Optimisations:
@@ -11,8 +14,3 @@ This Python script performs a few functions to intelligently minify your code fo
  * removes all whitespaces in between valid punctuation
  * removes units for width and height (EG: width: 100px -> width: 100)
  * removes all newlines
-
-
-
-Next steps:
-deploy as a Lambda function
