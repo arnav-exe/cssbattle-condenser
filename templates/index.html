@@ -18,7 +18,7 @@
             })
             .then(res => res.json())
             .then(data => {
-                document.getElementById("formattedText").innerText = data.formatted_text;
+                document.getElementById("formattedText").innerText = data.formattedText;
             })
             .catch(err => console.log(err))
         }

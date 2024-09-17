@@ -1,10 +1,10 @@
-import pyperclip as pc
+# import pyperclip as pc
 
-def readClipboard():
-    return pc.paste();
+# def readClipboard():
+#     return pc.paste();
 
-def writeClipboard(text):
-    pc.copy(text);
+# def writeClipboard(text):
+#     pc.copy(text);
 
 def minifier(text):
     punc = ".,:;%#/])*" # str of all valid punctuation
@@ -52,13 +52,13 @@ def minifier(text):
 
         i += 1;
 
-    return text;
+    return "".join(text).replace("\n", "");
 
-if __name__ == "__main__":
-    text = readClipboard();
-    while(text == ""):
-        text = readClipboard();
+# if __name__ == "__main__":
+#     text = readClipboard();
+#     while(text == ""):
+#         text = readClipboard();
     
-    results = "".join(minifier(text)).replace("\n", "");
-    writeClipboard(results);
-    print(results);
+#     results = minifier(text);
+#     writeClipboard(results);
+#     print(results);

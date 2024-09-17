@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+from main import minifier
 
 app = Flask(__name__)
 
@@ -9,13 +10,13 @@ def index():
 
 # ajax form submission route
 @app.route("/format_text", methods=["POST"])
-def format_text():
+def formatText():
 	data = request.get_json()
-	input_text = data["text"]
-	formatted_text = input_text.upper()
-	return jsonify({"formatted_text": formatted_text})
+	inputText = data["text"]
+	formattedText = minifier(inputText)
+	return jsonify({"formattedText": formattedText})
 
 
 
 if __name__ == "__main__":
-	app.run(debug=True)
+	app.run()
