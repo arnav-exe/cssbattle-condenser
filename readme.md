@@ -1,5 +1,9 @@
 # Code minifier for CSSBattle.dev
 
+
+##### WEBSITE IS NOW [LIVE](https://cssbattle-minifier.onrender.com/)
+
+
 This Python script performs a few functions to intelligently minify your code for the online code golfing game [CSSBattle.dev](https://cssbattle.dev/)
 
 ### Optimisations:
