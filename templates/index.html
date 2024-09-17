@@ -1,51 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSSBattle Minifier</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSSBattle Minifier</title>
 
-    <script>
-        const submitText = _ => {
-            const inputText = document.getElementById("inputText").value;
+	<!-- minifier alg fetcher and copy to clipboard scripts -->
+	<script>
+		const submitText = _ => {
+			const inputText = document.getElementById("inputText").value;
 
-            fetch("/format_text", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({text: inputText})
-            })
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById("formattedText").innerText = data.formattedText;
-            })
-            .catch(err => console.log(err))
-        }
+			fetch("/format_text", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify({text: inputText})
+			})
+			.then(res => res.json())
+			.then(data => {
+				document.getElementById("formattedText").innerText = data.formattedText;
+			})
+			.catch(err => console.log(err))
+		}
 
-        const copyToClipboard = _ => {
-            const formattedText = document.getElementById("formattedText").innerText;
-            navigator.clipboard.writeText(formattedText)
-            .then(_ => {
-                alert("Copied to clipboard");
-            })
-            .catch(err => console.log(err))
-        };
-    </script>
+		const copyToClipboard = _ => {
+			const formattedText = document.getElementById("formattedText").innerText;
+			navigator.clipboard.writeText(formattedText)
+			.then(_ => {
+				alert("Copied to clipboard");
+			})
+			.catch(err => console.log(err))
+		};
+	</script>
 </head>
+
 <body style="font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 0;">
-    <div style="display: flex; justify-content: center; flex-direction: column; padding: 0 100px;">
-        <h1 style="text-align: center;">CSSBattle Minifier</h1>
+	<div style="display: flex; justify-content: center; flex-direction: column; padding: 0 100px;">
+		<h1 style="text-align: center;">CSSBattle Minifier</h1>
+		<textarea id="inputText" rows="10" cols="50" placeholder="Enter your CSSBattle code here"></textarea>
+		<br>
+		<!-- minify code button -->
+		<button onclick="submitText()">Minify</button>
 
-        <textarea id="inputText" rows="10" cols="50" placeholder="Enter your CSSBattle code here"></textarea>
-        <br>
+		<br><br><br>
+		<h2 style="text-align: center;">Minified CSSBattle code:</h2>
+		<p id="formattedText"></p> <!-- minified code -->
 
-        <button onclick="submitText()">Minify</button>
-
-        <h2 style="text-align: center;">Minified CSSBattle code:</h2>
-        <p id="formattedText"></p>
-
-        <button id="copyToClipboard" onclick="copyToClipboard()">Copy to clipboard</button>
+		<!-- copy to clipboard button -->
+		<button id="copyToClipboard" onclick="copyToClipboard()">Copy to clipboard</button>
 </div>
 </body>
 </html>
