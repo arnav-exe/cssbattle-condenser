@@ -33,12 +33,13 @@
 			.catch(err => console.log(err))
 		};
 	</script>
+	<script src="https://kit.fontawesome.com/f0abf0898e.js" crossorigin="anonymous"></script>
 </head>
 
 <body style="font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 0;">
 	<div style="display: flex; justify-content: center; flex-direction: column; padding: 0 100px;">
 		<h1 style="text-align: center;">CSSBattle Minifier</h1>
-		<textarea id="inputText" rows="10" cols="50" placeholder="Enter your CSSBattle code here"></textarea>
+		<textarea style="resize: vertical;" rows="15" cols="50" id="inputText" placeholder="Enter your CSSBattle code here"></textarea>
 		<br>
 		<!-- minify code button -->
 		<button onclick="submitText()">Minify</button>
@@ -49,6 +50,36 @@
 
 		<!-- copy to clipboard button -->
 		<button id="copyToClipboard" onclick="copyToClipboard()">Copy to clipboard</button>
-</div>
+	</div>
+
+	<!-- footer -->
+	<div class="align-center" style="background: #eee; width: 100%; height: 125px; position: fixed; bottom: 0; flex-direction: column;">
+		<p>© Arnav Jagetia </p>
+		<div class="align-center" style="flex-direction: row; margin-bottom: 20px;">
+			<a href="https://github.com/arnav-exe/"><i class="fa-brands fa-github fa-2xl"></i></a>
+			<a href="https://linkedin.com/in/arnav-jagetia/"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
+			<a href="https://arnavjagetia.com/"><i class="fa-solid fa-code fa-2xl"></i></a>
+		</div>
+		
+	</div>
 </body>
 </html>
+
+
+
+<style>
+	a {
+		color: #000;
+		margin: 0 10px;
+	}
+
+	a:hover {
+		color: #333;
+	}
+
+	.align-center {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+</style>
