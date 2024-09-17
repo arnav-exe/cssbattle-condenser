@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSSBattle Minifier</title>
+
+    <script>
+        const submitText = _ => {
+            const inputText = document.getElementById("inputText").value;
+
+            fetch("/format_text", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({text: inputText})
+            })
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("formattedText").innerText = data.formatted_text;
+            })
+            .catch(err => console.log(err))
+        }
+    </script>
+</head>
+<body>
+    <h1>CSSBattle Minifier</h1>
+
+    <textarea id="inputText" rows="10" cols="50" placeholder="Enter your CSSBattle code here"></textarea>
+    <br>
+
+    <button onclick="submitText()">Minify</button>
+
+    <h2>Minified CSSBattle code:</h2>
+    <p id="formattedText"></p>
+</body>
+</html>

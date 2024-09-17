@@ -1,5 +1,4 @@
 import pyperclip as pc
-import time
 
 def readClipboard():
     return pc.paste();
@@ -7,7 +6,7 @@ def readClipboard():
 def writeClipboard(text):
     pc.copy(text);
 
-def optimizer(text):
+def minifier(text):
     punc = ".,:;%#/])*" # str of all valid punctuation
     text = text.split("\n");
 
@@ -60,6 +59,6 @@ if __name__ == "__main__":
     while(text == ""):
         text = readClipboard();
     
-    results = "".join(optimizer(text)).replace("\n", "");
+    results = "".join(minifier(text)).replace("\n", "");
     writeClipboard(results);
     print(results);
