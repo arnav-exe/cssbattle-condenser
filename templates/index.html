@@ -42,14 +42,18 @@
 		<textarea style="resize: vertical;" rows="15" cols="50" id="inputText" placeholder="Enter your CSSBattle code here"></textarea>
 		<br>
 		<!-- minify code button -->
-		<button onclick="submitText()">Minify</button>
+		<div style="display: flex; justify-content: center;">
+			<button onclick="submitText()">Minify</button>
+		</div>
 
 		<br><br><br>
 		<h2 style="text-align: center;">Minified CSSBattle code:</h2>
 		<p id="formattedText"></p> <!-- minified code -->
 
 		<!-- copy to clipboard button -->
-		<button id="copyToClipboard" onclick="copyToClipboard()">Copy to clipboard</button>
+		 <div style="display: flex; justify-content: center;">
+			<button id="copyToClipboard" style="" onclick="copyToClipboard()">Copy to clipboard</button>
+		</div>
 	</div>
 
 	<!-- footer -->
