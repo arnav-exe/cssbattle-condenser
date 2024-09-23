@@ -34,8 +34,8 @@ def minifier(text):
                 text[i] = "".join(tempArr);
             k += 1;
 
-        # removing px units for width and height
-        if ("width" in text[i] or "height" in text[i]):
+        # removing px units for width, height, top, bottom, left, right;
+        if ("width" in text[i] or "height" in text[i] or "top" in text[i] or "bottom" in text[i] or "left" in text[i] or "right" in text[i]):
             text[i] = text[i].replace("px", "");
         
         # slice list from before this element
