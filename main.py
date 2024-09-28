@@ -44,8 +44,17 @@ def minifier(text):
 
         i += 1;
     
+    # convert back to str
     text = "".join(text).replace("\n", "");
 
+    # remove last semicolon of each class
+    i = 0;
+    while i < len(text) - 1:
+        if text[i] == ";" and text[i + 1] == "}":
+            text = text[:i] + text[i + 1:];
+        i += 1;
+
+    # remove final semicolon if exists
     if (text[-1] == ";"):
         text = text[:-1];
 
