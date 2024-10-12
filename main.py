@@ -57,5 +57,8 @@ def minifier(text):
     # remove final semicolon if exists
     if (text[-1] == ";"):
         text = text[:-1];
+    
+    # get rid of hashtag in front of hex colour for body tag
+    text = text.replace('bgcolor="#', 'bgcolor="')
 
     return text;
