@@ -60,14 +60,17 @@
 
 	<!-- footer -->
 	<div class="align-center" style="background: #eee; width: 100%; height: 125px; position: fixed; bottom: 0; flex-direction: column;">
-		<p>© Arnav Jagetia </p>
+		<p>© Arnav Jagetia <span id="year"></span></p>
 		<div class="align-center" style="flex-direction: row; margin-bottom: 20px;">
 			<a href="https://github.com/arnav-exe/"><i class="fa-brands fa-github fa-2xl"></i></a>
 			<a href="https://linkedin.com/in/arnav-jagetia/"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
 			<a href="https://arnavjagetia.com/"><i class="fa-solid fa-code fa-2xl"></i></a>
 		</div>
-		
 	</div>
+
+	<script>
+		document.getElementById("year").textContent = new Date().getFullYear();
+	</script>
 </body>
 </html>
 
